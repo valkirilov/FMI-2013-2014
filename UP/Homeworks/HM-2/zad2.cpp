@@ -8,6 +8,9 @@
  *
  *  01 December 2013
  *
+ *  FIX NOTE:
+ *  In the lates version I was finding the largest element in the whole matrix.
+ *
  */
 
  #include <iostream>
@@ -59,19 +62,17 @@ void printMatrix(int** matrix){
 int main() {
 
 	int** inputMatrix = readMatrix();
-  	//printMatrix(inputMatrix); 
+	//printMatrix(inputMatrix); 
   	
-  	int max = inputMatrix[0][0];
-  	for (short i=0; i<__N__; ++i) {
-  		for (short j=0; j<__N__; ++j) {
-  			if (inputMatrix[i][j] > max) {
-  				max = inputMatrix[i][j];
-  			}
-  		}
-  	}
-  	cout << max << endl;
+	int max = inputMatrix[0][0];
+	for (short i=0; i<__N__; ++i) {
+    if (inputMatrix[i][i] > max) {
+			max = inputMatrix[i][i];
+		}
+	}
+	cout << max << endl;
 
-  	freeMatrix(inputMatrix);
+	freeMatrix(inputMatrix);
 
  	return 0;
 }
