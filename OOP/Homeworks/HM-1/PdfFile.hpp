@@ -7,20 +7,10 @@
 class PdfFile : public TextFile {
 
 public:
-	PdfFile(std::string name)
-	: TextFile(name)
-	{		
-		if (DEBUG) {
-			std::cout << "TextFile.hpp: TextFile(std::string name) with " << name << std::endl;
-		}
-	}
+	PdfFile(std::string name);
 
 	void Open() const;
 
 };
-
-void PdfFile::Open() const {
-	std::cout << "Opening a pdf" << std::endl;
-}
 
 #endif

@@ -7,23 +7,10 @@
 class TxtFile : public TextFile {
 
 public:
-	TxtFile(std::string name)
-	: TextFile(name)
-	{
-		// Initialize it to be empty string
-		content_ = "";
-		
-		if (DEBUG) {
-			std::cout << "TextFile.hpp: TextFile(std::string name) with " << name << std::endl;
-		}
-	}
+	TxtFile(std::string name);
 
 	void Open() const;
 
 };
-
-void TxtFile::Open() const {
-	std::cout << "Opening a txt" << std::endl;
-}
 
 #endif

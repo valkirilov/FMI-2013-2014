@@ -11,14 +11,7 @@ class Folder {
 	std::vector<Folder*> folders_;
 
 public:
-	Folder(std::string name)
-	: name_(name) {
-		
-
-		if (DEBUG) {
-			std::cout << "Folder.hpp: Folder(std::string name) with " << name << std::endl;
-		}
-	}
+	Folder(std::string name);
 
 	std::string GetName() const;
 	std::vector<File*>& GetFiles();
@@ -30,16 +23,11 @@ public:
 	void DeleteFile(File* file); 			// deletes the specified file
 	void MoveFileTo(File* file, Folder* newFolder); // moves the file from the current folder to the newFolder
 
+	// Aditional methods to help me see what I am doing
+	void PrintFolders();
+	void PrintFiles();
+
 };
 
-std::string Folder::GetName() const {
-	return name_;
-}
 
-std::vector<File*>& Folder::GetFiles() {
-	return files_;
-}
-std::vector<Folder*>& Folder::GetFolders() {
-	return folders_;
-}
 #endif

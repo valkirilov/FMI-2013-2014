@@ -7,20 +7,10 @@
 class DocFile : public TextFile {
 
 public:
-	DocFile(std::string name)
-	: TextFile(name)
-	{		
-		if (DEBUG) {
-			std::cout << "TextFile.hpp: TextFile(std::string name) with " << name << std::endl;
-		}
-	}
+	DocFile(std::string name);
 
 	void Open() const;
 
 };
-
-void DocFile::Open() const {
-	std::cout << "Opening a doc" << std::endl;
-}
 
 #endif
