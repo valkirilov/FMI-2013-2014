@@ -15,22 +15,22 @@ int main() {
 	cout << (one.Real() == 1) << endl; // true;
 	cout << (i.Imaginary() == 0) << endl; // true;
 
-	cout << one + two; // 3
-	// cout << two - one; // 1
-	// cout << sample + i; // 4 - 4i
-	// cout << one * i; // 0 + i
-	// cout << one / i; // 0 - i;
+	cout << one + two << endl; // 3
+	cout << two - one << endl; // 1
+	cout << sample + i << endl; // 4 - 4i
+	cout << one * i << endl; // 0 + i
+	//cout << one / i << endl; // 0 - i;
 
 	// cout << one.Root(0, 2); // 1
 	// cout << one.Root(1, 2); // -1
 	// cout << one.Root(2, 4); // 0 + i
 	// cout << i.Power(2); // 1
 	// cout << i ^ 2; // 1
-	// cout << (sample + 2 * i).Modulus(); // 5 
+	//cout << (sample + 2 * i).Modulus(); // 5 
 
-	// cout << i == Complex(0, 1); // true
-	// cout << unit == one + i; // true
-	// cout << sample != i; // false
+	cout << (i == Complex(0, 1)) << endl; // true
+	cout << (unit == one + i) << endl; // true
+	cout << (sample != i) << endl; // false
 
 	return 0;
 }

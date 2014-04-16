@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 #include "Complex.hpp"
 
 Complex::Complex()
@@ -32,6 +33,10 @@ bool Complex::IsReal() const {
 	return imaginary_ == 0;
 }
 
+double Complex::Modulus() const {
+	return sqrt(real_*real_ + imaginary_*imaginary_);
+}
+
 Complex operator+(const Complex& p, const Complex& q) {
 	double real = p.Real() + q.Real();
 	double imaginery = p.Imaginary() + q.Imaginary();
@@ -39,8 +44,31 @@ Complex operator+(const Complex& p, const Complex& q) {
 	return Complex(real, imaginery);
 }
 
-// Writes a complex number to the stream. The output should be in the form 
-//'a + bi'. If b = 1, the output should be 'a + i' and if b = 0, the output should be only 'a'.
+Complex operator-(const Complex& p, const Complex& q) {
+	double real = p.Real() - q.Real();
+	double imaginery = p.Imaginary() - q.Imaginary();
+
+	return Complex(real, imaginery);
+}
+
+Complex operator*(const Complex& p, const Complex& q) {
+	double a = p.Real();
+	double b = p.Imaginary();
+
+	double c = q.Real();
+	double d = q.Imaginary();
+
+	return Complex((a*c - b*d), (a*d + b*c));
+}
+
+bool operator==(const Complex& lhs, const Complex& rhs) {
+	return (lhs.Real() == rhs.Real() && lhs.Imaginary() == rhs.Imaginary());
+}
+
+bool operator!=(const Complex& lhs, const Complex& rhs) {
+	return (lhs.Real() != rhs.Real() || lhs.Imaginary() != rhs.Imaginary());
+}
+
 std::ostream& operator<<(std::ostream& stream, const Complex& number) {
 	double real = number.Real();
 	double imaginery = number.Imaginary();

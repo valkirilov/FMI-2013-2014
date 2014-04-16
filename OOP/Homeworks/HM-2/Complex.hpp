@@ -25,7 +25,7 @@ public:
     //Complex& Conjugate() const;
 
     // Computes the modulus (distance to the center of the coordinate system) of the complex number
-    //double Modulus() const;
+    double Modulus() const;
 
     // Computes the n-th power of the complex number. Use de Moivre's formulae
     //Complex Power(double n) const;
@@ -43,9 +43,9 @@ public:
 // Adds two numbers
 Complex operator+(const Complex& p, const Complex& q);
 // Substracts two numbers
-//Complex operator-(const Complex& p, const Complex& q);
+Complex operator-(const Complex& p, const Complex& q);
 // Multiplies two numbers
-//Complex operator*(const Complex& p, const Complex& q);
+Complex operator*(const Complex& p, const Complex& q);
 // Divides two numbers. Complex division MUST be defined using ONLY multiplication, conjugate and modulus
 //Complex operator/(const Complex& p, const Complex& q);
 
@@ -53,10 +53,10 @@ Complex operator+(const Complex& p, const Complex& q);
 //Complex operator^(const Complex& number, double n);
 
 // Returns true if the numbers are equal (lhs = left hand side, rhs = right hand side)
-//bool operator==(const Complex& lhs, const Complex& rhs);
+bool operator==(const Complex& lhs, const Complex& rhs);
 
 // Returns true if the numbers are not equal 
-//bool operator!=(const Complex& lhs, const Complex& rhs);
+bool operator!=(const Complex& lhs, const Complex& rhs);
 
 // Reads a complex number from the stream. The input will be in the form a + bi
 //std::istream& operator>>(std::istream& stream, Complex& number);
