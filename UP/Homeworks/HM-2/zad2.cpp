@@ -62,12 +62,12 @@ int main() {
   	//printMatrix(inputMatrix); 
   	
   	int max = inputMatrix[0][0];
+    // Check for the diagonal!!! Not the whole matrix!!!
   	for (short i=0; i<__N__; ++i) {
-  		for (short j=0; j<__N__; ++j) {
-  			if (inputMatrix[i][j] > max) {
-  				max = inputMatrix[i][j];
-  			}
-  		}
+  	   cout << ":"<< inputMatrix[i][i+i] << endl;
+      if (inputMatrix[i][i+i] > max) {
+	   		max = inputMatrix[i][i+i];
+			}
   	}
   	cout << max << endl;
 
