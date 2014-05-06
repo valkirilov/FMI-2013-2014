@@ -2,8 +2,14 @@
 #include <cmath>
 #include "Complex.hpp"
 
+//http://www.librow.com/articles/article-10/appendix-b-1
+
 Complex::Complex()
 : real_(0), imaginary_(0)
+{}
+
+Complex::Complex(double real)
+: real_(real), imaginary_(0.0)
 {}
 
 Complex::Complex(double real, double imaginary)
@@ -22,12 +28,11 @@ double Complex::Imaginary() const {
 	return imaginary_;
 }
 
-/*
 Complex& Complex::Conjugate() const {
-	//Complex* conjugate = new Complex(-real_, -imaginary_);
-	Complex conjugate (-real_, -imaginary_);
-	return conjugate;
-}*/
+    Complex conj(real_, -imaginary_);
+
+    return conj;
+}
 
 bool Complex::IsReal() const {
 	return imaginary_ == 0;
@@ -61,12 +66,38 @@ Complex operator*(const Complex& p, const Complex& q) {
 	return Complex((a*c - b*d), (a*d + b*c));
 }
 
+Complex operator/(const Complex& p, const Complex& q) {
+	double denominator = (q.Real() * q.Real()) + (q.Imaginary() * q.Imaginary());
+
+	double newReal = ((p.Real() * q.Real()) + (p.Imaginary() * q.Imaginary())) / denominator;
+	double newImaginary = (p.Imaginary() * q.Real() - p.Real() * q.Imaginary()) / denominator;
+	Complex result(newReal, newImaginary);
+    
+    return result;
+}
+
 bool operator==(const Complex& lhs, const Complex& rhs) {
 	return (lhs.Real() == rhs.Real() && lhs.Imaginary() == rhs.Imaginary());
 }
 
 bool operator!=(const Complex& lhs, const Complex& rhs) {
 	return (lhs.Real() != rhs.Real() || lhs.Imaginary() != rhs.Imaginary());
+}
+
+std::istream& operator>>(std::istream& stream, Complex& number) {
+	double real, imaginary;
+	char plus;
+
+	stream >> real;
+	stream >> plus;
+	stream >> imaginary;
+	stream >> plus;
+
+	//number;
+	//number.real_ = real;
+	//number.imaginary_ = imaginary;
+
+	return stream;
 }
 
 std::ostream& operator<<(std::ostream& stream, const Complex& number) {
