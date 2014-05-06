@@ -2,8 +2,6 @@
 #include <cmath>
 #include "Complex.hpp"
 
-//http://www.librow.com/articles/article-10/appendix-b-1
-
 Complex::Complex()
 : real_(0), imaginary_(0)
 {}
@@ -82,22 +80,6 @@ bool operator==(const Complex& lhs, const Complex& rhs) {
 
 bool operator!=(const Complex& lhs, const Complex& rhs) {
 	return (lhs.Real() != rhs.Real() || lhs.Imaginary() != rhs.Imaginary());
-}
-
-std::istream& operator>>(std::istream& stream, Complex& number) {
-	double real, imaginary;
-	char plus;
-
-	stream >> real;
-	stream >> plus;
-	stream >> imaginary;
-	stream >> plus;
-
-	//number;
-	//number.real_ = real;
-	//number.imaginary_ = imaginary;
-
-	return stream;
 }
 
 std::ostream& operator<<(std::ostream& stream, const Complex& number) {

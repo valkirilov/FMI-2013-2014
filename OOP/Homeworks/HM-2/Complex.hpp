@@ -42,6 +42,23 @@ public:
 
     // Returns true if the number is real (i.e. b = 0)
     bool IsReal() const;
+
+    // Reads a complex number from the stream. The input will be in the form a + bi
+    friend std::istream& operator>>(std::istream& stream, Complex& number) {
+        double real, imaginary;
+        char plus;
+
+        stream >> real;
+        stream >> plus;
+        stream >> imaginary;
+        stream >> plus;
+
+        number.real_ = real;
+        number.imaginary_ = imaginary;
+
+        return stream;
+    }
+
 };
 
 // Adds two numbers
@@ -63,7 +80,7 @@ bool operator==(const Complex& lhs, const Complex& rhs);
 bool operator!=(const Complex& lhs, const Complex& rhs);
 
 // Reads a complex number from the stream. The input will be in the form a + bi
-std::istream& operator>>(std::istream& stream, Complex& number);
+// std::istream& operator>>(std::istream& stream, Complex& number);
 
 // Writes a complex number to the stream. The output should be in the form 'a + bi'. If b = 1, the output should be 'a + i' and if b = 0, the output should be only 'a'.
 std::ostream& operator<<(std::ostream& stream, const Complex& number);

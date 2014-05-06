@@ -40,6 +40,11 @@ int main() {
 	// cout << i ^ 2; // 1
 	//cout << (sample + 2 * i).Modulus(); // 5 
 
+	
+	Complex read;
+	cin >> read;
+	cout << "Print: " <<read << endl;
+
 	cout << (i == Complex(0, 1)) << endl; // true
 	cout << (unit == one + i) << endl; // true
 	cout << (sample != i) << endl; // false
