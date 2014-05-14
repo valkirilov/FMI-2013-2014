@@ -26,9 +26,8 @@ double Complex::Imaginary() const {
 	return imaginary_;
 }
 
-Complex& Complex::Conjugate() const {
-    Complex conj(real_, -imaginary_);
-
+Complex Complex::Conjugate() const {
+    Complex conj(Real(), -Imaginary());
     return conj;
 }
 
@@ -39,6 +38,19 @@ bool Complex::IsReal() const {
 double Complex::Modulus() const {
 	return sqrt(real_*real_ + imaginary_*imaginary_);
 }
+
+Complex Complex::Power(double n) const {
+	double real = Modulus() * cos(n*Argument());
+	double imaginary = Modulus() * sin(n*Argument());
+	Complex result(real, imaginary);
+
+	return result;
+}
+
+double Complex::Argument() const {
+	return atan(Imaginary() / Real());
+}
+
 
 Complex operator+(const Complex& p, const Complex& q) {
 	double real = p.Real() + q.Real();
@@ -72,6 +84,10 @@ Complex operator/(const Complex& p, const Complex& q) {
 	Complex result(newReal, newImaginary);
     
     return result;
+}
+
+Complex operator^(const Complex& number, double n) {
+	return number.Power(n);
 }
 
 bool operator==(const Complex& lhs, const Complex& rhs) {

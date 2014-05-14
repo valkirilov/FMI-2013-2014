@@ -31,19 +31,21 @@ int main() {
 	cout << two - one << endl; // 1
 	cout << sample + i << endl; // 4 - 4i
 	cout << one * i << endl; // 0 + i
-	//cout << one / i << endl; // 0 - i;
+	cout << one / i << endl; // 0 - i;
+
+	//cout << "Conjugate" << endl;
+	//cout << sample.Conjugate() <<  endl;
 
 	// cout << one.Root(0, 2); // 1
 	// cout << one.Root(1, 2); // -1
 	// cout << one.Root(2, 4); // 0 + i
-	// cout << i.Power(2); // 1
-	// cout << i ^ 2; // 1
-	//cout << (sample + 2 * i).Modulus(); // 5 
+	cout << i.Power(2); // 1
+	cout << (i ^ 2); // 1
+	cout << (sample + 2 * i).Modulus(); // 5 
 
-	
-	Complex read;
-	cin >> read;
-	cout << "Print: " <<read << endl;
+	//Complex read;
+	//cin >> read;
+	//cout << "Print: " <<read << endl;
 
 	cout << (i == Complex(0, 1)) << endl; // true
 	cout << (unit == one + i) << endl; // true
