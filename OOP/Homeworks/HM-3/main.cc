@@ -12,6 +12,8 @@
 
 #include <iostream>
 #include <string>
+#include <map>
+
 using namespace std;
 
 // Computes the median of the collection. (A median is the middle element of a collection)
@@ -22,17 +24,48 @@ T median(T* collection, int size) {
 
 // Computes the mode of the collection. (A mode is the element found most often in the collection)
 template<class T>
-T mode(T* collection, int size);
+T mode(T* collection, int size) {
+	T modeElement;
+	T currentElement;
+
+    int maxElementCount = 0;
+    int elementCount;
+
+    for(int i=0; i<size; i++) {
+    	currentElement = collection[i];
+    	elementCount = 0;
+
+    	// Count how many times we have this element in the collection
+        for(int j=0; j<size; j++) {
+            if(collection[j] == currentElement) {
+                elementCount++;
+            }
+    	}
+        
+        // Check if this is our new mode
+        if(maxElementCount < elementCount) {
+            maxElementCount = elementCount;
+            modeElement = currentElement;
+        }
+    }
+
+    return modeElement;
+}
 
 // Computes the arithmetic average of the collection. 
-// T average(T* collection, int size);
+template<class T>
+T average(T* collection, int size) {
+	T sum = accumulate(collection, size);
+
+	return sum / size;
+}
 
 // Accumulates all elements in the collection using the + operator
 template<class T>
 T accumulate(T* collection, int size) {
-	T result = 0;
+	T result = collection[0];
 	for (int i=0; i<size; i++) {
-		result = result + collection[i];
+		result += collection[i];
 	}
 	return result;
 }
@@ -60,7 +93,16 @@ bool any(T* collection, int size) {
 }
 
 // Casts all elements in the collection from T1 to T2 using static_cast
-// T2* cast(T* collection, int size);
+template<class T1, class T2>
+T2* cast(T1* collection, int size) {
+	T2* newCollection = new T2[size];
+
+	for (int i=0; i<size; i++) {
+		newCollection[i] = static_cast<T2>(collection[i]);
+	}
+
+	return newCollection;
+}
 
 // Returns the maximum element in the collection. Note: this method should work for any type that has implemented the < operator 
 template<class T>
@@ -153,10 +195,10 @@ int main() {
 	cout << median(strings, strings_len) << endl; // mickey mouse
 	//cout << median(zeros, zeros_len) << endl; // mickey mouse
 
-	// cout << mode(numbers, numbers_len); // 4
-	// cout << average(numbers, numbers_len); // 3
+	cout << mode(numbers, numbers_len) << endl; // 4
+	cout << average(numbers, numbers_len) << endl; // 3
 	cout << accumulate(numbers, numbers_len) << endl; // 32
-	//cout << accumulate(strings, numbers_len) << endl; // "batmansupermanmickey mousespindermanuti bachvarov"
+	cout << accumulate(strings, strings_len) << endl; // "batmansupermanmickey mousespindermanuti bachvarov"
 	cout << all(zeros, zeros_len) << endl; // false
 	cout << all(numbers, numbers_len) << endl; // false
 	cout << all(&numbers[1], numbers_len - 1) << endl; // true
@@ -170,6 +212,10 @@ int main() {
 	string* reversedStrings = reverse(strings, strings_len); // { "uti bachvarov", "spinderman",  "mickey mouse", "superman", "batman"};
 	string* takeStrings = take(strings, strings_len, 2); // { "batman", "superman" }
 	string* skipStrings = skip(strings, strings_len, 2); // { "mickey mouse", "spinderman", "uti bachvarov" }
+
+	// double doubles[] = { 0.5, 1.5, 2.5, 3.5, 4.5, 4.5, 5.5, 6.5, 7.5 };
+	// int* casted = cast<double, int>(doubles, numbers_len);
+	// printCollection(casted, numbers_len);
 
 	return 0;
 }
