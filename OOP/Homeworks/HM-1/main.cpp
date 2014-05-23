@@ -1,3 +1,15 @@
+/*
+ *  OOP
+ *  FMI SU "St. Kliment Ohridski"
+ *   
+ *  Valentin Kirilov
+ *  val.kirilov@gmail.com
+ *  valkirilov.com
+ *
+ *  21 April 2014
+ *
+ */
+
 #include <iostream>
 
 #include "Folder.hpp"

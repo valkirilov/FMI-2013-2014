@@ -1,0 +1,11 @@
+EQUIP ATTACK <value>
+EQUIP DEFENCE <value>
+EQUIP HEALTH <value>
+EQUIP MANA <value>
+OPONENT MONSTER <type> <name> <attack> <defence> <health> <mana>
+EQUIP ATTACK <value>
+EQUIP DEFENCE <value>
+EQUIP HEALTH <value>
+ITEM <type> <name> <attack> <defence> <health>
+OPONENT MONSTER <type> <name> <attack> <defence> <health> <mana>
+OPONENT MONSTER <type> <name> <attack> <defence> <health> <mana>

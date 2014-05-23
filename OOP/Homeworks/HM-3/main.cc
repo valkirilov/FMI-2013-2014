@@ -213,9 +213,10 @@ int main() {
 	string* takeStrings = take(strings, strings_len, 2); // { "batman", "superman" }
 	string* skipStrings = skip(strings, strings_len, 2); // { "mickey mouse", "spinderman", "uti bachvarov" }
 
-	// double doubles[] = { 0.5, 1.5, 2.5, 3.5, 4.5, 4.5, 5.5, 6.5, 7.5 };
-	// int* casted = cast<double, int>(doubles, numbers_len);
-	// printCollection(casted, numbers_len);
+	double doubles[] = { 0.5, 1.5, 2.5, 3.5, 4.5, 4.5, 5.5, 6.5, 7.5 };
+	string stringNumbers[] = { "0", "1", "2", "3", "4", "4", "5", "6", "7" };
+	int* casted = cast<string, int>(stringNumbers, numbers_len);
+	printCollection(casted, numbers_len);
 
 	return 0;
 }
